@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MassaUz.Domain\MassaUz.Domain.csproj" />
     <ProjectReference Include="..\MassaUz.Infrastructure\MassaUz.Infrastructure.csproj" />
     <ProjectReference Include="..\MassUz.Application\MassUz.Application.csproj" />
   </ItemGroup>

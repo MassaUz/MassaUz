@@ -4,6 +4,7 @@ using MassUz.Application;
 using MassaUz.Infrastructure;
 using MassaUz.Infrastructure.Persistance;
 using Serilog;
+using MassaUz.Domain.Entities.Auth;
 //using MassaUz.Domain.Entities.Auth;
 
 internal class Program
@@ -25,6 +26,20 @@ internal class Program
         // Add services to the container.
 
         //builder.Services.AddApplicationServices();
+
+        builder.Services.AddApplicationServices();
+        builder.Services.AddInfrastructure(builder.Configuration);
+
+
+        builder.Services.AddIdentity<User, IdentityRole<Guid>>()
+            .AddEntityFrameworkStores<MassaUzDbContext>()
+            .AddDefaultTokenProviders();
+
+
+
+
+
+
         builder.Services.AddControllers()
             .AddJsonOptions(options =>
             {
