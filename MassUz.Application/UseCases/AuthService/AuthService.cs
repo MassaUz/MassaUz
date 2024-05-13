@@ -43,6 +43,7 @@ namespace MassUz.Application.UseCases.AuthService
                 expires:DateTime.UtcNow.AddMinutes(expirePeriod),
                 signingCredentials:credentials
                 );
+            
             return new JwtSecurityTokenHandler().WriteToken(token); 
         }
 
