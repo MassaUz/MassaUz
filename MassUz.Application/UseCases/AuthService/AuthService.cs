@@ -44,6 +44,16 @@ namespace MassUz.Application.UseCases.AuthService
                 signingCredentials:credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(token); 
+
+            JwtSecurityToken token = new JwtSecurityToken(
+                issuer: _configuration["JWTSettings:ValidIssuer"],
+                audience: _configuration["JWTSettings:ValidAudience"],
+                claims:claims,
+                expires:DateTime.UtcNow.AddMinutes(expirePeriod),
+                signingCredentials:credentials
+                );
+            
+            return new JwtSecurityTokenHandler().WriteToken(token); 
         }
 
     } 
