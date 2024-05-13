@@ -4,7 +4,7 @@ using MassUz.Application;
 using MassaUz.Infrastructure;
 using MassaUz.Infrastructure.Persistance;
 using Serilog;
-using MassaUz.Domain.Entities.Auth;
+//using MassaUz.Domain.Entities.Auth;
 
 internal class Program
 {
@@ -24,7 +24,7 @@ internal class Program
         });
         // Add services to the container.
 
-        builder.Services.AddApplicationServices();
+        //builder.Services.AddApplicationServices();
         builder.Services.AddControllers()
             .AddJsonOptions(options =>
             {
@@ -87,20 +87,20 @@ internal class Program
 
             if (userManager.FindByEmailAsync(email).Result == null)
             {
-                var user = new User()
-                {
-                    UserName = "Admin",
-                    Name = "Admin",
-                    Surname = "Admin",
-                    Email = email,
-                    Password = password,
-                    PhoneNumber = "+998958136252",
-                    Role = "Admin"
-                };
+                //var user = new User()
+                //{
+                //    UserName = "Admin",
+                //    Name = "Admin",
+                //    Surname = "Admin",
+                //    Email = email,
+                //    Password = password,
+                //    PhoneNumber = "+998958136252",
+                //    Role = "Admin"
+                //};
 
-                userManager.CreateAsync(user, password).Wait();
+                //userManager.CreateAsync(user, password).Wait();
 
-                userManager.AddToRoleAsync(user, "Admin").Wait();
+                //userManager.AddToRoleAsync(user, "Admin").Wait();
             }
         }
 
